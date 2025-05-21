@@ -134,3 +134,75 @@ body{
         transform: translateY(0);
     }
 }
+
+.hamburger-icon {
+    display: none; /* Hidden by default */
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    border: none;
+    background: none;
+}
+
+.close-icon {
+    display: none; /* Hidden by default */
+    font-size: 40px; /* Larger size for easier tapping */
+    cursor: pointer;
+    color: #333; /* Or your preferred color */
+    border: none;
+    background: none;
+    position: absolute; /* Position absolutely within the menu */
+    top: 10px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 101; /* Make sure it's above the menu content */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .menu-navegacion {
+        display: none; /* Hide regular menu */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust as needed */
+        left: 0;
+        width: 100%;
+        background-color: white; /* Or your desired background */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        z-index: 99;
+    }
+
+    .menu-navegacion.active {
+        display: flex; /* Show menu when active */
+        top: 0; /* Start from the top edge */
+        height: 100vh; /* Take up full viewport height */
+        justify-content: center; /* Center content vertically */
+        padding-top: 60px; /* Add some padding from the top for the header */
+        box-sizing: border-box; /* Include padding in height calculation */
+    }
+
+    .menu-navegacion.active .close-icon {
+        display: block; /* Show close icon when menu is active */
+    }
+
+    .menu-navegacion a {
+        padding: 15px 20px; /* Adjust padding for better spacing in full screen */
+        text-align: center;
+    }
+
+    .hamburger-icon {
+        display: block; /* Show hamburger icon */
+    }
+
+    .boton-accion {
+        display: none; /* Hide action button on small screens if desired */
+    }
+
+    .encabezado {
+        padding: 15px 20px;
+    }
+
+    .menu-navegacion.active .close-icon {
+        display: block; /* Show close icon when menu is active */
+    }
+}
