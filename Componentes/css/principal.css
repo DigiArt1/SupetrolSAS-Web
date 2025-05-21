@@ -57,7 +57,7 @@ body{
 }
 
 .seccion-princpal{
-    background-image: url('/imagen/Fondo1.avif');
+    background-image: url('./imagen/Fondo1.avif');
     position: relative;
     height: 90vh;
     overflow: hidden;
