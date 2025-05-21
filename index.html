@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A&L SUPETROL SAS - Aditivos & Lubricantes</title>
-    <link rel="stylesheet" href="./Componentes/css/principal.css">
+    <link rel="stylesheet" href="../Componentes/css/principal.css">
 </head>
 <body>
     <header class="encabezado" >
         <img src="./imagen/logo.png" alt="Logo principal" class="logo">
+        <button class="hamburger-icon">
+            &#9776; <!-- Hamburger icon -->
+        </button>
         <nav class="menu-navegacion">
+            <button class="close-icon">&times;</button> <!-- Close button -->
             <a href="">Home</a>
             <a href="">Quienes Somos</a>
             <a href="">Blog</a>
@@ -22,11 +26,31 @@
     <section class="seccion-princpal">
         <div class="superposicion">
                 <div class="contenido-principal">
-                <img src="./imagen/logo2.png" alt="logo2" class="imagen-titulo">
+                <img src="/imagen/logo2.png" alt="logo2" class="imagen-titulo">
                 <button class="boton-conocenos">Conocenos</button>
             </div>
         </div>
     </section>
-    
+    <script>
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const menuNavegacion = document.querySelector('.menu-navegacion');
+        const closeIcon = document.querySelector('.close-icon');
+
+        hamburgerIcon.addEventListener('click', () => {
+            menuNavegacion.classList.toggle('active'); // Changed to toggle
+        });
+
+        closeIcon.addEventListener('click', () => {
+            menuNavegacion.classList.remove('active');
+        });
+
+         // Close the menu when a link is clicked (optional)
+        document.querySelectorAll('.menu-navegacion a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuNavegacion.classList.remove('active');
+            });
+        });
+
+    </script>
 </body>
 </html>
