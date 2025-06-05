@@ -17,3 +17,30 @@ document.querySelectorAll('.menu-navegacion a').forEach(link => {
     });
 });
 
+// Product card touch interaction
+document.querySelectorAll('.producto-card').forEach(card => {
+    card.addEventListener('click', function() {
+        // Check if we're on a touch device
+        if (window.matchMedia('(hover: none)').matches) {
+            // Toggle the active class
+            this.classList.toggle('active');
+            
+            // Close other cards
+            document.querySelectorAll('.producto-card').forEach(otherCard => {
+                if (otherCard !== this) {
+                    otherCard.classList.remove('active');
+                }
+            });
+        }
+    });
+});
+
+// Close cards when clicking outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.producto-card')) {
+        document.querySelectorAll('.producto-card').forEach(card => {
+            card.classList.remove('active');
+        });
+    }
+});
+
