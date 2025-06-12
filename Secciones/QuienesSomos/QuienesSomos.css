@@ -172,7 +172,7 @@
 
 /* LOGO PRINCIPAL */
 .logo_blanco {
-  max-width: 100px;      /* Limita el ancho del figure */
+  max-width: 200px;      /* Limita el ancho del figure */
   width: 50%;           /* Escala en pantallas pequeñas */
   margin: 0 auto;       /* Solo centra horizontalmente, sin espacios verticales automáticos */
   margin-top: 10px;     /* Espacio superior personalizado */
@@ -308,14 +308,138 @@ p {
     transition: color 0.3s ease;
   }
 
+/* IMAGEN MECANICOS CON ANIMACION */
+
+/* ===============================================
+   CONFIGURACIÓN PRINCIPAL DE LA IMAGEN
+   =============================================== */
+.mecanicos {
+  /* TAMAÑO Y POSICIÓN */
+  width: auto;
+  height: auto;
+  max-width: 40%;
+  float: left;              /* Posiciona la imagen a la izquierda */
+  margin-right: 40px; 
+  margin-left: 40px;
+  margin-top: -5%;      /* Espacio entre imagen y contenido siguiente */
+  margin-bottom: 40px;      /* Espacio inferior */
+  
+  /* EFECTOS VISUALES */
+  border: none;
+  box-shadow: none;
+  background: none;
+  
+  /* CONFIGURACIÓN DE ANIMACIÓN */
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: slideInTransparent 3s ease-out forwards; /* 3 segundos = MUY LENTO */
+  
+  /* CONFIGURACIÓN DE HOVER */
+  transition: all 0.4s ease;
+}
+
+/* Animación principal: aparece transparente y se mueve hacia la derecha */
+@keyframes slideInTransparent {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.95);
+    filter: blur(5px);
+  }
+  30% {
+    opacity: 0.3;
+    filter: blur(3px);
+  }
+  60% {
+    opacity: 0.7;
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Efecto hover - zoom más pronunciado sin marcos */
+.mecanicos:hover {
+  transform: translateX(0) scale(1.15);
+  opacity: 1;
+}
+
+/* Variante con delay si necesitas múltiples imágenes */
+.mecanicos.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.mecanicos.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.mecanicos.delay-3 {
+  animation-delay: 0.9s;
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+  .mecanicos {
+    max-width: 100%;
+    
+    /* Animación más suave en móviles */
+    transform: translateX(-40px);
+  }
+  
+  .mecanicos:hover {
+    transform: translateX(0) scale(1.1);
+  }
+  
+  @keyframes slideInTransparent {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px) scale(0.98);
+      filter: blur(3px);
+    }
+    40% {
+      opacity: 0.4;
+      filter: blur(2px);
+    }
+    70% {
+      opacity: 0.8;
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      filter: blur(0);
+    }
+  }
+}
+
+/* Eliminado - sin efectos de brillo adicionales */
+
+/* Si necesitas posicionar la imagen específicamente */
+.mecanicos-section {
+  position: relative;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.mecanicos-section .mecanicos {
+  display: block;
+  margin: 0 auto;
+}
 
 /* CONTENIDO PRINCIPAL DE QUIENES SOMOS */
+/* IMPORTAR FUENTE POPPINS BOLD */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
 /* Contenedor general que envuelve todas las tarjetas */
 .supetrol-container {
   position: relative;         /* No afecta otros elementos */
-  float: left;               /* Se posiciona a la izquierda */
+  float: right;              /* Cambiado a derecha para aparecer al lado derecho */
   width: 45%;                /* Ocupa 45% del ancho disponible */
-  margin-right: 2%;          /* Espacio para la sección derecha */
+  margin-left: 5%;           /* Espacio para la sección izquierda */
+  margin-right: 5%;
+  margin-top: 6%;         /* Margen derecho */
   display: flex;
   flex-wrap: wrap;           /* Permite que las tarjetas se ajusten en varias filas */
   justify-content: space-between; /* Separa columnas */
@@ -323,11 +447,11 @@ p {
   box-sizing: border-box;
 }
 
-/* Tarjeta tipo vidrio */
+/* Tarjeta tipo vidrio con animación inicial */
 .supetrol-glass-card {
   background: rgba(255, 255, 255, 0.212);
   border-radius: 20px;
-  padding: 2rem;
+  padding: 4rem;
   max-width: 2000px;
   width: 100%;
   color: #fff;
@@ -338,11 +462,16 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.4s ease;
   transform: scale(0.98);
+  
+  /* Animación de entrada */
+  opacity: 0;
+  transform: translateX(-100px) scale(0.98);
+  animation: slideInFromLeft 1s ease-out forwards;
 }
 
 /* Hover con brillo */
 .supetrol-glass-card:hover {
-  transform: scale(1);
+  transform: scale(1) translateX(0);
   box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -351,104 +480,7 @@ p {
 .supetrol-glass-card p {
   line-height: 1.2;
   margin-bottom: 1rem;
-  font-size: 1.05rem;
-}
-
-/* ICONO DE LAS TARJETAS */
-.card-icon{
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-.card-mv:hover .card-icon {
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  transform: rotate(360deg);
-}
-
-/* Animación moderna al cargar */
-@keyframes fadeInScale {
-  0% {
-    opacity: 0;
-    transform: scale(0.95) translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* Clearfix para evitar problemas de float */
-.supetrol-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .supetrol-container {
-    float: none;             /* Elimina float en móviles */
-    width: 100%;             /* Ocupa todo el ancho */
-    margin-right: 0;         /* Sin margen derecho */
-  }
-  
-  .supetrol-glass-card {
-    padding: 1.5rem;
-  }
-  
-  .supetrol-glass-card h2 {
-    font-size: 1.6rem;
-  }
-  
-  .supetrol-glass-card p {
-    font-size: 1rem;
-  }
-}
-
-/* IMPORTAR FUENTE POPPINS BOLD */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
-/* CONTENEDOR DE TARJETAS MISIÓN Y VISIÓN - LADO DERECHO */
-.mission-vision-container {
-  position: relative;
-  float: right;
-  width: 35%;               /* Ancho angosto */
-  margin-left: 3%;          /* Separación del lado izquierdo */
-  margin-right: 5%;         /* NUEVO: Separación del borde derecho */
-  margin-top: 40px;         /* Para bajar las tarjetas */
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  box-sizing: border-box;
-}
-
-/* ESTILOS PARA LAS TARJETAS INDIVIDUALES */
-.card-mv {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  padding: 1rem;
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.4s ease;
-  transform: scale(0.98);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* HOVER EFFECT PARA LAS TARJETAS */
-.card-mv:hover {
-  transform: scale(1);
-  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.5rem;
 }
 
 /* ICONO DE LAS TARJETAS */
@@ -468,48 +500,99 @@ p {
   transform: rotate(360deg);
 }
 
-/* TÍTULO DE LAS TARJETAS */
-.card-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+/* Animación de entrada desde la izquierda con desvanecimiento */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.95);
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
-/* TEXTO DE LAS TARJETAS */
-.card-text {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9);
-  text-align: justify;
+/* Animación moderna al cargar (conservada por compatibilidad) */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
-/* CLEARFIX PARA EVITAR PROBLEMAS DE FLOAT */
-.mission-vision-container::after {
+/* Diferentes delays para crear efecto cascada */
+.supetrol-glass-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.supetrol-glass-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.supetrol-glass-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.supetrol-glass-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.supetrol-glass-card:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.supetrol-glass-card:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+/* Clearfix para evitar problemas de float */
+.supetrol-container::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* RESPONSIVE PARA MÓVILES */
+/* Responsive */
 @media (max-width: 768px) {
-  .mission-vision-container {
+  .supetrol-container {
     float: none;             /* Elimina float en móviles */
     width: 100%;             /* Ocupa todo el ancho */
     margin-left: 0;          /* Sin margen izquierdo */
-    margin-top: 20px;        /* Espacio superior en móviles */
+    margin-right: 0;         /* Sin margen derecho */
   }
   
-  .card-mv {
+  .supetrol-glass-card {
     padding: 1.5rem;
+    /* En móviles, animación más suave */
+    transform: translateX(-50px) scale(0.98);
   }
   
-  .card-title {
-    font-size: 1.5rem;
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px) scale(0.95);
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
   }
   
-  .card-text {
-    font-size: 0.95rem;
+  .supetrol-glass-card h2 {
+    font-size: 1.6rem;
+  }
+  
+  .supetrol-glass-card p {
+    font-size: 1rem;
   }
 }
