@@ -1,0 +1,515 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-top: 0px solid white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.encabezado{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: white;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0,0.1);
+}
+
+.logo{
+    width: 180px;
+}
+
+.menu-navegacion{
+    display: flex;
+    gap: 30px;
+}
+
+.menu-navegacion a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3;
+
+}
+
+.menu-navegacion a:hover{
+    color: red;
+}
+
+.boton-accion{
+    background-color: #ff0000 ;
+    color: white;
+    border: none;
+    padding: 10px 20px;    
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.boton-accion:hover{
+    background-color: black;
+}
+
+.seccion-princpal{
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+    background-size: cover;
+    background-position:center ;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 0.5s;
+    background: black;
+}
+
+.seccion-princpal video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.superposicion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.418);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contenido-principal {
+    max-width: 800px;
+    padding: 0 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagen-titulo {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.boton-conocenos{
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 2s;
+
+}
+
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hamburger-icon {
+    display: none; /* Hidden by default */
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    border: none;
+    background: none;
+}
+
+.close-icon {
+    display: none; /* Hidden by default */
+    font-size: 40px; /* Larger size for easier tapping */
+    cursor: pointer;
+    color: #333; /* Or your preferred color */
+    border: none;
+    background: none;
+    position: absolute; /* Position absolutely within the menu */
+    top: 10px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 101; /* Make sure it's above the menu content */
+}
+
+/*Seccion1 de Quienes somos*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* LOGO PRINCIPAL */
+.logo_blanco {
+  max-width: 100px;      /* Limita el ancho del figure */
+  width: 50%;           /* Escala en pantallas pequeñas */
+  margin: 0 auto;       /* Solo centra horizontalmente, sin espacios verticales automáticos */
+  margin-top: 10px;     /* Espacio superior personalizado */
+  margin-bottom: 10px;  /* Espacio inferior personalizado */
+  text-align: center;   /* Centra el texto de figcaption */
+  padding: 0;           /* Elimina padding por defecto */
+}
+
+.logo_blanco img.logo_blanco {
+  width: 80%;           /* Escala dentro del figure */
+  height: auto;         /* Mantiene proporción original */
+  display: block;       /* Elimina espacio debajo de la imagen */
+  margin: 0 auto;       /* Centra la imagen dentro del contenedor */
+  padding: 0;           /* Elimina padding de la imagen */
+  vertical-align: top;  /* Elimina espacios adicionales */
+}
+
+.quienes-somos {
+  position: relative;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding: 110px 10px;
+}
+
+.video-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5); /* efecto oscuro para que resalte el texto */
+  transform: scale(1.05); /* efecto parallax sutil */
+}
+
+.contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-out;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.iconos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.icono {
+  text-align: center;
+  animation: fadeInUp 2s ease-out;
+}
+
+.icono img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  animation: pulse 2s infinite;
+}
+
+.icono span {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .iconos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+ .iconos {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px;
+    background-color: #11111100; /* Fondo oscuro */
+  }
+
+  .icono {
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .icono i {
+    font-size: 50px;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .icono span {
+    display: block;
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+  }
+
+
+/* CONTENIDO PRINCIPAL DE QUIENES SOMOS */
+/* Contenedor general que envuelve todas las tarjetas */
+.supetrol-container {
+  position: relative;         /* No afecta otros elementos */
+  float: left;               /* Se posiciona a la izquierda */
+  width: 45%;                /* Ocupa 45% del ancho disponible */
+  margin-right: 2%;          /* Espacio para la sección derecha */
+  display: flex;
+  flex-wrap: wrap;           /* Permite que las tarjetas se ajusten en varias filas */
+  justify-content: space-between; /* Separa columnas */
+  gap: 30px;                 /* Espacio entre tarjetas */
+  box-sizing: border-box;
+}
+
+/* Tarjeta tipo vidrio */
+.supetrol-glass-card {
+  background: rgba(255, 255, 255, 0.212);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 2000px;
+  width: 100%;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  transform: scale(0.98);
+}
+
+/* Hover con brillo */
+.supetrol-glass-card:hover {
+  transform: scale(1);
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Párrafos */
+.supetrol-glass-card p {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+/* ICONO DE LAS TARJETAS */
+.card-icon{
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+.card-mv:hover .card-icon {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transform: rotate(360deg);
+}
+
+/* Animación moderna al cargar */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Clearfix para evitar problemas de float */
+.supetrol-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .supetrol-container {
+    float: none;             /* Elimina float en móviles */
+    width: 100%;             /* Ocupa todo el ancho */
+    margin-right: 0;         /* Sin margen derecho */
+  }
+  
+  .supetrol-glass-card {
+    padding: 1.5rem;
+  }
+  
+  .supetrol-glass-card h2 {
+    font-size: 1.6rem;
+  }
+  
+  .supetrol-glass-card p {
+    font-size: 1rem;
+  }
+}
+
+/* IMPORTAR FUENTE POPPINS BOLD */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* CONTENEDOR DE TARJETAS MISIÓN Y VISIÓN - LADO DERECHO */
+.mission-vision-container {
+  position: relative;
+  float: right;
+  width: 35%;               /* Ancho angosto */
+  margin-left: 3%;          /* Separación del lado izquierdo */
+  margin-right: 5%;         /* NUEVO: Separación del borde derecho */
+  margin-top: 40px;         /* Para bajar las tarjetas */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+/* ESTILOS PARA LAS TARJETAS INDIVIDUALES */
+.card-mv {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 1rem;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  transform: scale(0.98);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* HOVER EFFECT PARA LAS TARJETAS */
+.card-mv:hover {
+  transform: scale(1);
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ICONO DE LAS TARJETAS */
+.card-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-mv:hover .card-icon {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transform: rotate(360deg);
+}
+
+/* TÍTULO DE LAS TARJETAS */
+.card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* TEXTO DE LAS TARJETAS */
+.card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: justify;
+}
+
+/* CLEARFIX PARA EVITAR PROBLEMAS DE FLOAT */
+.mission-vision-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* RESPONSIVE PARA MÓVILES */
+@media (max-width: 768px) {
+  .mission-vision-container {
+    float: none;             /* Elimina float en móviles */
+    width: 100%;             /* Ocupa todo el ancho */
+    margin-left: 0;          /* Sin margen izquierdo */
+    margin-top: 20px;        /* Espacio superior en móviles */
+  }
+  
+  .card-mv {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+  }
+}
