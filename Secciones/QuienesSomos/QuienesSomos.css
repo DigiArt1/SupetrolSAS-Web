@@ -516,7 +516,7 @@
   padding: 8px 28px;
   font-size: 18px;
   color: #fff;
-  background-color: #d32f2f;
+  background-color: #ff0000;
   border: none;
   border-radius: 8px;
   text-decoration: none;
@@ -524,7 +524,7 @@
 }
 
 .boton-rojo:hover {
-  background-color: #b71c1c;
+  background-color: #ff0000;
 }
 
 /* SEGUNDA SECCION QUIENES SOMOS */
@@ -539,7 +539,7 @@
     text-align: center;
     font-size: 2em;
     margin-bottom: 40px;
-    color: #c70039;
+    color: #ff0000;
 }
 
 .conocenos-container {
@@ -582,7 +582,7 @@
   width: 100%; height: 100%;
   object-fit: cover;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 1.8;
 }
 .mision-vision .contenido-mv {
   max-width: 800px;
@@ -616,7 +616,7 @@
 }
 .valor i {
   font-size: 2em;
-  color: crimson;
+  color: rgb(255, 0, 0);
   margin-bottom: 10px;
 }
 
