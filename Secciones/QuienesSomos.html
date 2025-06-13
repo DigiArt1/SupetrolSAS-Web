@@ -8,11 +8,11 @@
     <link rel="icon" type="logo_pestaña/png" href="../Secciones/QuienesSomos/ISOLOGO.png">
     <link rel="stylesheet" href="../Secciones/QuienesSomos/QuienesSomos.css">
 
-    <!-- link de Favicones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <!-- Seccion 2 para los íconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Seccion 3 para los iconos de valores -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
@@ -35,23 +35,20 @@
 
     <!-- Seccion1 de quienes Somos -->
 
+   <div class="quienes-somos">
+    <video class="video-fondo" autoplay muted loop playsinline>
+        <source src="../Secciones/QuienesSomos/video_motor.mp4" type="video/mp4" />
+    </video>
 
-    <div class="quienes-somos">
-        <video class="video-fondo" autoplay muted loop playsinline>
-            <source src="../Secciones/QuienesSomos/video_motor.mp4" type="video/mp4" />
-        </video>
-    
-        <fugure class="logo_blanco">
-            <img src="../Secciones/QuienesSomos/logo_blanco.png" alt="logo_blanco" class="logo_blanco">
-            <figcaption class="logo_blanco_texto"></figcaption>
-    
-            <div class="mecanicos-container">
-                <img src="../Secciones/QuienesSomos/mecanicos1.png" alt="mecanicos" class="mecanicos">
-            </div>
-    
-            <section class="supetrol-container">
-                <div class="supetrol-glass-card">
-                    <p>
+    <h2 class="titulo-principal">¿Quienes Somos?</h2>
+
+    <div class="mecanicos-container">
+        <img src="../Secciones/QuienesSomos/mecanicos1.png" alt="mecanicos" class="mecanicos">
+    </div>
+
+    <div class="supetrol-container">
+        <div class="supetrol-glass-card">
+            <p>
                 <strong>SupetrolSAS</strong> es una empresa colombiana nacida con la firme convicción de aportar al
                 desarrollo energético e industrial del país a través de la fabricación responsable de productos derivados de
                 la refinación del petróleo. Fundada el <strong>4 de julio de 2024</strong> en la ciudad de <strong>Pereira,
@@ -59,7 +56,110 @@
                 profundo respeto por quienes confían en nosotros.
             </p>
         </div>
-    </section>
-    </body>
-    
-    </html>
+
+        <div class="boton-contenedor">
+            <a href="#conocenos" class="boton-rojo">Conócenos</a>
+        </div>
+    </div>
+</div>
+
+<!-- Seccion 2: Conócenos -->
+<div class="conocenos" id="conocenos">
+    <h2 class="titulo-secundario">Conócenos</h2>
+    <div class="conocenos-container">
+        <div class="conocenos-texto">
+            <p>
+                En SupetrolSAS, nos dedicamos a la fabricación de productos como aceites lubricantes, grasas y
+                combustibles, siempre con un enfoque en la calidad y la sostenibilidad. Nuestro compromiso con la
+                excelencia nos impulsa a innovar constantemente, garantizando que nuestros productos cumplan con los más
+                altos estándares internacionales.
+            </p>
+        </div>
+        <div class="conocenos-imagen">
+            <img src="../Secciones/QuienesSomos/LOGO_PRINCIPAL.png" alt="Conócenos" class="imagen-conocenos">
+        </div>
+    </div>
+</div>
+
+<!-- SECCION 3: MISION Y VISION -->
+<section class="mision-vision">
+  <video class="video-fondo" autoplay muted loop playsinline>
+    <source src="../Secciones/QuienesSomos/aceite.mp4" type="video/mp4">
+  </video>
+  <div class="contenido-mv">
+    <h2>Misión</h2>
+    <p>
+      Producir y comercializar lubricantes de alta calidad que garanticen el máximo rendimiento y protección de
+      motores, satisfaciendo las necesidades de nuestros clientes a través de innovación constante, procesos
+      eficientes y un firme compromiso con la sostenibilidad y el servicio al cliente.
+    </p>
+    <h2>Visión</h2>
+    <p>
+      Ser líderes en el mercado nacional e internacional de lubricantes, reconocidos por nuestra excelencia, 
+      compromiso ambiental e innovación en todos nuestros procesos.
+    </p>
+  </div>
+</section>
+
+<!-- SECCION 4: VALORES -->
+<section class="valores">
+  <h2>Nuestros Valores</h2>
+  <div class="valores-container">
+    <div class="valor">
+      <i class="fas fa-handshake"></i>
+      <h3>Compromiso</h3>
+    </div>
+    <div class="valor">
+      <i class="fas fa-leaf"></i>
+      <h3>Sostenibilidad</h3>
+    </div>
+    <div class="valor">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Innovación</h3>
+    </div>
+    <div class="valor">
+      <i class="fas fa-users"></i>
+      <h3>Trabajo en equipo</h3>
+    </div>
+    <div class="valor">
+      <i class="fas fa-star"></i>
+      <h3>Excelencia</h3>
+    </div>
+  </div>
+</section>
+
+<!-- Scripts de GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+  // animación con GSAP
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".conocenos-container", {
+    scrollTrigger: ".conocenos-container",
+    opacity: 0,
+    y: 100,
+    duration: 1.5,
+    ease: "power2.out"
+  });
+
+  gsap.from(".mision-vision", {
+    scrollTrigger: ".mision-vision",
+    opacity: 0,
+    y: 100,
+    duration: 1.5,
+    ease: "power2.out"
+  });
+
+  gsap.from(".valor", {
+    scrollTrigger: ".valores",
+    y: 50,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 1,
+    ease: "back.out(1.7)"
+  });
+</script>
+</body>
+</html>

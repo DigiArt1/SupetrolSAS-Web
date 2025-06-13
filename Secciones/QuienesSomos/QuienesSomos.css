@@ -170,172 +170,53 @@
 /*Seccion1 de Quienes somos*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* LOGO PRINCIPAL */
-.logo_blanco {
-  max-width: 200px;      /* Limita el ancho del figure */
-  width: 50%;           /* Escala en pantallas pequeñas */
-  margin: 0 auto;       /* Solo centra horizontalmente, sin espacios verticales automáticos */
-  margin-top: 10px;     /* Espacio superior personalizado */
-  margin-bottom: 10px;  /* Espacio inferior personalizado */
-  text-align: center;   /* Centra el texto de figcaption */
-  padding: 0;           /* Elimina padding por defecto */
-}
-
-.logo_blanco img.logo_blanco {
-  width: 80%;           /* Escala dentro del figure */
-  height: auto;         /* Mantiene proporción original */
-  display: block;       /* Elimina espacio debajo de la imagen */
-  margin: 0 auto;       /* Centra la imagen dentro del contenedor */
-  padding: 0;           /* Elimina padding de la imagen */
-  vertical-align: top;  /* Elimina espacios adicionales */
-}
-
 .quienes-somos {
   position: relative;
+  min-height: 100vh;
   overflow: hidden;
-  color: rgb(0, 0, 0);
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  padding: 110px 10px;
+  z-index: 1;
 }
 
+/* VIDEO DE FONDO */
 .video-fondo {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 110%;
   object-fit: cover;
   z-index: -1;
-  filter: brightness(0.5); /* efecto oscuro para que resalte el texto */
-  transform: scale(1.05); /* efecto parallax sutil */
+  filter: brightness(0.3);
+  transform: scale(1.0); 
 }
 
-.contenido {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: auto;
-}
-
-h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  animation: fadeInDown 1s ease-out;
-}
-
-p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  animation: fadeInUp 1.5s ease-out;
-}
-
-.iconos {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-.icono {
+/* TITULO (QUIENES SOMOS) */
+.titulo-principal {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: #ffffff;
   text-align: center;
-  animation: fadeInUp 2s ease-out;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(117, 116, 116, 0.76); 
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
-
-.icono img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 10px;
-  animation: pulse 2s infinite;
-}
-
-.icono span {
-  display: block;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-/* Animaciones */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .iconos {
-    flex-direction: column;
-    align-items: center;
-  }
-}
- .iconos {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    padding: 40px;
-    background-color: #11111100; /* Fondo oscuro */
-  }
-
-  .icono {
-    text-align: center;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-
-  .icono i {
-    font-size: 50px;
-    color: white;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-
-  .icono span {
-    display: block;
-    margin-top: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: color 0.3s ease;
-  }
 
 /* IMAGEN MECANICOS CON ANIMACION */
-
-/* ===============================================
-   CONFIGURACIÓN PRINCIPAL DE LA IMAGEN
-   =============================================== */
 .mecanicos {
-  /* TAMAÑO Y POSICIÓN */
   width: auto;
   height: auto;
-  max-width: 40%;
-  float: left;              /* Posiciona la imagen a la izquierda */
-  margin-right: 40px; 
-  margin-left: 40px;
-  margin-top: -5%;      /* Espacio entre imagen y contenido siguiente */
-  margin-bottom: 40px;      /* Espacio inferior */
+  max-width: 35%;
+  float: left; 
+  margin-left: 60px;
+  margin-top: -1%;
+
   
-  /* EFECTOS VISUALES */
-  border: none;
-  box-shadow: none;
-  background: none;
-  
-  /* CONFIGURACIÓN DE ANIMACIÓN */
+  /* ANIMACIÓN */
   opacity: 0;
   transform: translateX(-80px);
-  animation: slideInTransparent 3s ease-out forwards; /* 3 segundos = MUY LENTO */
-  
-  /* CONFIGURACIÓN DE HOVER */
-  transition: all 0.4s ease;
+  animation: slideInTransparent 1s ease-out forwards;
+
 }
 
 /* Animación principal: aparece transparente y se mueve hacia la derecha */
@@ -414,9 +295,7 @@ p {
   }
 }
 
-/* Eliminado - sin efectos de brillo adicionales */
 
-/* Si necesitas posicionar la imagen específicamente */
 .mecanicos-section {
   position: relative;
   padding: 40px 0;
@@ -595,4 +474,163 @@ p {
   .supetrol-glass-card p {
     font-size: 1rem;
   }
+}
+
+.boton-container {
+  text-align: center;
+  margin-top: 40px;
+  animation: aparecer 1.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* BOTON CONOCENOS */
+
+.boton-contenedor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  animation: aparecer 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.boton-rojo {
+  display: inline-block;
+  padding: 8px 28px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #d32f2f;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.boton-rojo:hover {
+  background-color: #b71c1c;
+}
+
+/* SEGUNDA SECCION QUIENES SOMOS */
+
+.conocenos {
+    background-color: white;
+    padding: 80px 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.titulo-secundario {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #c70039;
+}
+
+.conocenos-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.conocenos-imagen {
+    flex: 1;
+    text-align: center;
+}
+
+.imagen-conocenos {
+    max-width: 100%;
+    height: auto;
+    animation: slideInLeft 1s ease forwards;
+}
+
+.conocenos-texto {
+    flex: 1;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #333;
+    animation: slideInRight 1s ease forwards;
+}
+
+.mision-vision {
+  position: relative;
+  padding: 100px 20px;
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+}
+.mision-vision .video-fondo {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3;
+}
+.mision-vision .contenido-mv {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(0,0,0,0.5);
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.valores {
+  padding: 80px 20px;
+  background: #f4f4f4;
+  text-align: center;
+}
+.valores-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+.valor {
+  width: 150px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.valor:hover {
+  transform: translateY(-10px);
+}
+.valor i {
+  font-size: 2em;
+  color: crimson;
+  margin-bottom: 10px;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
