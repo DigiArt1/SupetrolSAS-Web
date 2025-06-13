@@ -190,16 +190,25 @@
   transform: scale(1.0); 
 }
 
-/* TITULO (QUIENES SOMOS) */
+/* TITULO PRINCIPAL (QUIENES SOMOS) */
 .titulo-principal {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
   color: #ffffff;
   text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(117, 116, 116, 0.76); 
-  animation: fadeIn 1.5s ease-in-out forwards;
+  margin: 4rem auto 3rem;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  letter-spacing: 2px;
+  
+  /* Sombra de texto mejorada */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* IMAGEN MECANICOS CON ANIMACION */
@@ -208,8 +217,8 @@
   height: auto;
   max-width: 35%;
   float: left; 
-  margin-left: 60px;
-  margin-top: -1%;
+  margin-left: 80px;
+  margin-top: 0%;
 
   
   /* ANIMACIÓN */
@@ -329,13 +338,13 @@
 /* Tarjeta tipo vidrio con animación inicial */
 .supetrol-glass-card {
   background: rgba(255, 255, 255, 0.212);
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 4rem;
   max-width: 2000px;
   width: 100%;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px32px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -357,27 +366,11 @@
 
 /* Párrafos */
 .supetrol-glass-card p {
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.0rem;
+  font-size: 1.2rem;
 }
 
-/* ICONO DE LAS TARJETAS */
-.card-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.card-mv:hover .card-icon {
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  transform: rotate(360deg);
-}
 
 /* Animación de entrada desde la izquierda con desvanecimiento */
 @keyframes slideInFromLeft {
@@ -529,19 +522,25 @@
 
 /* SEGUNDA SECCION QUIENES SOMOS */
 
-.conocenos {
-    background-color: white;
-    padding: 80px 20px;
-    animation: fadeInUp 1s ease-in-out;
+.conocenos::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #ff0000;
+  border-radius: 2px;
 }
-
-.titulo-secundario {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 40px;
-    color: #ff0000;
+.titulo-secundario::after {
+  font-size: 2rem;
+  margin-bottom: 35px;
+  position: relative;
+  padding-bottom: 15px;
+  color: #1a1a1a;
+  letter-spacing: 1px;
 }
-
 .conocenos-container {
     display: flex;
     align-items: center;
