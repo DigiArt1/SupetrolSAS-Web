@@ -568,27 +568,312 @@
     animation: slideInRight 1s ease forwards;
 }
 
-.mision-vision {
+/* Contenedor principal de toda la sección */
+.mision-vision-container {
   position: relative;
-  padding: 100px 20px;
-  color: #fff;
-  overflow: hidden;
-  text-align: center;
+  width: 100%;
+  min-height: 500px; /* Altura mínima para que se vea el contenido y el video */
+  display: flex;
+  flex-direction: column; /* Apilamos la barra y el contenido */
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px; /* Relleno alrededor del contenido */
+  box-sizing: border-box;
+  overflow: hidden; /* Oculta cualquier cosa que se desborde del contenedor principal */
 }
-.mision-vision .video-fondo {
+
+/* Video de fondo */
+.video-fondo {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: -1;
-  opacity: 1.8;
+  z-index: -4; /* Más al fondo que la barra */
+  filter: brightness(1.1);
 }
-.mision-vision .contenido-mv {
-  max-width: 800px;
-  margin: auto;
-  background: rgba(0,0,0,0.5);
-  padding: 40px;
-  border-radius: 15px;
+
+/* Barra de gradiente tipo vidrio en el fondo */
+.glass-bar-background {
+  position: absolute;
+  width: 90%; /* Ajusta el ancho de la barra */
+  max-width: 1000px; /* Ancho máximo para pantallas grandes */
+  height: 150px; /* Altura de la barra */
+  top: 50%; /* Centrar verticalmente */
+  transform: translateY(-50%); /* Ajuste para centrado perfecto */
+  background: linear-gradient(90deg, rgba(255, 165, 0, 0.2), rgba(138, 43, 226, 0.2), rgba(0, 191, 255, 0.2)); /* Gradiente transparente */
+  backdrop-filter: blur(15px); /* Desenfoque fuerte para la barra de vidrio */
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil para el efecto de vidrio */
+  border-radius: 25px; /* Bordes redondeados de la barra */
+  z-index: -1; /* Detrás del contenido, encima del video */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+/* Contenedor para Misión, Visión, Valores (los mantiene horizontales y centrados) */
+.content-wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* Mantiene los ítems en una sola fila */
+  justify-content: center; /* Centra los ítems */
+  gap: 40px; /* Espacio entre los ítems */
+  width: 100%;
+  max-width: 1100px; /* Ancho máximo del wrapper */
+  z-index: 1; /* Por encima de la barra de vidrio */
+  padding-bottom: 20px; /* Para el posible scrollbar */
+  overflow-x: auto; /* Habilita el scroll horizontal si no caben */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+/* Estilo para el scrollbar en navegadores basados en WebKit */
+.content-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.content-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.content-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Cada item individual (Misión, Visión, Valores) */
+.mvv-item {
+  display: flex;
+  flex-direction: column; /* Contenido apilado verticalmente */
+  align-items: center; /* Centra horizontalmente los elementos dentro del item */
+  text-align: center;
+  position: relative; /* Para posicionar la caja de descripción */
+  flex-shrink: 0; /* Evita que los ítems se encojan */
+  width: 280px; /* Ancho fijo para cada ítem */
+  padding-bottom: 10px; /* Espacio para el despliegue */
+  transition: transform 0.4s ease-in-out;
+  margin-top: 10px; /* Espacio superior para que el círculo no se corte al levantarse */
+  margin-bottom: 20px; /* Espacio inferior para el despliegue */
+}
+
+/* Animación de levantamiento del item al pasar el mouse */
+.mvv-item:hover {
+  transform: translateY(-10px); /* Levanta todo el item */
+}
+
+/* Estilos para los CÍRCULOS */
+.circle {
+  width: 120px; /* Diámetro del círculo */
+  height: 120px;
+  border-radius: 50%; /* Lo hace circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Espacio entre el círculo y el título */
+  overflow: hidden; /* Asegura que la imagen dentro no se salga */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para el círculo */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Estilo de vidrio para los CÍRCULOS (más opaco) */
+.glass-circle {
+  background: rgba(255, 255, 255, 0.25); /* Fondo blanco más opaco para el círculo */
+  backdrop-filter: blur(8px); /* Desenfoque de vidrio */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borde más visible */
+}
+
+/* Animación del círculo al pasar el mouse por el item */
+.mvv-item:hover .circle {
+  transform: scale(1.1); /* Agranda el círculo */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Imágenes dentro de los círculos */
+.circle img {
+  width: 100%; /* La imagen ocupa el 80% del círculo */
+  height: 100%;
+  object-fit: contain; /* Ajusta la imagen dentro sin recortarla */
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* Sombra para que el ícono resalte */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Animación de la imagen/ícono dentro del círculo */
+.mvv-item:hover .circle img {
+  transform: scale(1.05); /* Ligeramente más grande al hacer hover */
+}
+
+/* Títulos de Misión, Visión, Valores */
+.mvv-item h3 {
+  color: #fff;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 15px; /* Espacio antes de la descripción */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Caja de descripción que se despliega */
+.description-box {
+  background: rgba(255, 255, 255, 0.1); /* Fondo vidrio más transparente */
+  backdrop-filter: blur(6px); /* Desenfoque más suave */
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0 20px; /* Relleno horizontal inicial */
+  height: 0; /* ¡Inicialmente oculta con altura 0! */
+  overflow: hidden; /* Oculta el contenido */
+  opacity: 0; /* Inicialmente transparente */
+  transition: height 0.6s ease-out, opacity 0.6s ease-out, padding 0.6s ease-out; /* Transición suave */
+  box-sizing: border-box; /* Incluye padding en la altura */
+  position: absolute; /* Posicionamiento absoluto relativo al .mvv-item */
+  top: 100%; /* Inicia justo debajo del título */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajuste para centrado horizontal */
+  width: 100%; /* Ocupa el ancho del mvv-item */
+  max-width: 300px; /* Ancho máximo de la caja de descripción */
+  z-index: 5; /* Por encima de todo */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Al pasar el cursor sobre el ITEM principal, se despliega la descripción */
+.mvv-item:hover .description-box {
+  height: auto; /* Se despliega la altura */
+  padding: 20px; /* Se añade el padding vertical */
+  opacity: 1; /* Se hace visible */
+  max-height: 250px; /* Un valor lo suficientemente grande para contener el texto */
+  /* Ajusta max-height si tu texto es muy largo */
+}
+
+/* Párrafos dentro de la descripción */
+.description-box p {
+  color: #f0f0f0;
+  font-size: 0.95em;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+/* --- Responsive Design --- */
+
+/* Para tabletas y escritorios más pequeños */
+@media (max-width: 992px) {
+  .mision-vision-container {
+    padding: 60px 15px;
+  }
+  .glass-bar-background {
+    width: 95%; /* Barra más ancha en tablets */
+    height: 120px;
+  }
+  .content-wrapper {
+    gap: 30px; /* Espacio entre items */
+    justify-content: flex-start; /* Alinea al inicio para el scroll */
+  }
+  .mvv-item {
+    width: 250px; /* Ancho ajustado para items */
+    padding-bottom: 0; /* Quitamos el padding extra para el hover */
+    margin-bottom: 20px; /* Ajustamos el margen inferior */
+  }
+  .circle {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  .circle img {
+    width: 75%;
+    height: 75%;
+  }
+  .mvv-item h3 {
+    font-size: 1.6em;
+  }
+  .description-box {
+    width: 250px; /* Ancho de la caja de descripción */
+    padding: 0 15px;
+  }
+  .mvv-item:hover .description-box {
+    padding: 15px;
+    max-height: 200px; /* Ajusta si tu texto es muy largo */
+  }
+  .description-box p {
+    font-size: 0.9em;
+  }
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+  .mision-vision-container {
+    padding: 40px 10px;
+  }
+  .glass-bar-background {
+    width: 98%; /* Casi ancho completo */
+    height: 100px;
+  }
+  .content-wrapper {
+    gap: 20px; /* Menos espacio entre items */
+  }
+  .mvv-item {
+    width: 220px; /* Ancho más pequeño para móviles */
+  }
+  .circle {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  .circle img {
+    width: 70%;
+    height: 70%;
+  }
+  .mvv-item h3 {
+    font-size: 1.4em;
+  }
+  .description-box {
+    width: 220px; /* Ancho de la caja de descripción */
+    padding: 0 10px;
+  }
+  .mvv-item:hover .description-box {
+    padding: 10px;
+    max-height: 180px;
+  }
+  .description-box p {
+    font-size: 0.85em;
+  }
+}
+
+/* Para dispositivos muy pequeños (ej. iPhone 5/SE) */
+@media (max-width: 480px) {
+  .mision-vision-container {
+    padding: 30px 5px;
+  }
+  .glass-bar-background {
+    width: 100%;
+    border-radius: 0; /* Quita los bordes redondeados en pantallas muy pequeñas */
+    height: 80px;
+  }
+  .content-wrapper {
+    gap: 15px;
+  }
+  .mvv-item {
+    width: 180px; /* Aún más pequeño */
+  }
+  .circle {
+    width: 70px;
+    height: 70px;
+  }
+  .circle img {
+    width: 65%;
+    height: 65%;
+  }
+  .mvv-item h3 {
+    font-size: 1.2em;
+  }
+  .description-box {
+    width: 180px;
+  }
+  .mvv-item:hover .description-box {
+    max-height: 150px;
+  }
+  .description-box p {
+    font-size: 0.8em;
+  }
 }
 
 .valores {
